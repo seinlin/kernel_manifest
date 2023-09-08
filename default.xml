@@ -3,10 +3,10 @@
 
   <remote  name="aosp"
     fetch="https://android.googlesource.com/" />
-  <remote  name="seinlin"
-    fetch="https://github.com/seinlin/" />
   <default revision="refs/tags/android-13.0.0_r0.83"
     remote="aosp" sync-j="4" />
+  <remote  name="seinlin"
+    fetch="https://github.com/seinlin/" />
 
   <project path="aosp" name="kernel/common" groups="partner"/>
   <project path="private/gs-google" name="kernel_gs" remote="seinlin" revision="gonk_android-13.0.0_r0.83">
@@ -35,12 +35,6 @@
     <linkfile dest="update_symbol_list_lynx-staging.sh" src="update_symbol_list_lynx-staging.sh"/>
     <linkfile dest="private/gs-google/arch/arm64/boot/dts/google/devices/lynx" src="dts"/>
   </project>
-  <project path="private/devices/google/felix" name="kernel/devices/google/felix" groups="partner,felix" >
-    <linkfile dest="build_felix.sh" src="build_felix.sh"/>
-    <linkfile dest="update_symbol_list_felix-aosp.sh" src="update_symbol_list_felix-aosp.sh"/>
-    <linkfile dest="update_symbol_list_felix-staging.sh" src="update_symbol_list_felix-staging.sh"/>
-    <linkfile dest="private/gs-google/arch/arm64/boot/dts/google/devices/felix" src="dts"/>
-  </project>
   <project path="private/google-modules/aoc" name="kernel/google-modules/aoc" groups="partner" />
   <project path="private/google-modules/aoc_ipc" name="kernel/google-modules/aoc-ipc" groups="partner" />
   <project path="private/google-modules/display" name="kernel/google-modules/display" groups="partner" />
@@ -49,7 +43,7 @@
   <project path="private/google-modules/edgetpu/abrolhos" name="kernel/google-modules/edgetpu/abrolhos" groups="partner"/>
   <project path="private/google-modules/edgetpu/janeiro" name="kernel/google-modules/edgetpu/janeiro" groups="partner" />
   <project path="private/google-modules/power/reset" name="kernel/google-modules/power/reset" groups="partner" />
-  <project path="prebuilts/boot-artifacts" name="platform/prebuilts/boot-artifacts" groups="partner" />
+  <project path="prebuilts/boot-artifacts" name="platform/prebuilts/boot-artifacts" clone-depth="1" groups="partner" />
   <project path="private/google-modules/amplifiers" name="kernel/google-modules/amplifiers" groups="partner" />
   <project path="private/google-modules/bluetooth/broadcom" name="kernel/google-modules/bluetooth/broadcom" groups="partner" />
   <project path="private/google-modules/bluetooth/qcom" name="kernel/google-modules/bluetooth/qcom" groups="partner" />
@@ -91,20 +85,20 @@
     <linkfile dest="build/static_analysis" src="static_analysis"/>
   </project>
   <project path="kernel/configs" name="kernel/configs" />
-  <project path="prebuilts/gas/linux-x86" name="platform/prebuilts/gas/linux-x86" />
-  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" groups="partner" />
-  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" groups="partner" />
-  <project path="prebuilts/misc" name="platform/prebuilts/misc" groups="partner" />
-  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" groups="partner">
+  <project path="prebuilts/gas/linux-x86" name="platform/prebuilts/gas/linux-x86" clone-depth="1" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" groups="partner" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" clone-depth="1" groups="partner" />
+  <project path="prebuilts/misc" name="platform/prebuilts/misc" clone-depth="1" groups="partner" />
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" groups="partner">
     <linkfile dest="build/prebuilts/build-tools" src="."/>
   </project>
-  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" groups="partner">
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" groups="partner">
     <linkfile dest="build/prebuilts/kernel-build-tools" src="."/>
   </project>
   <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" groups="partner"/>
   <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="partner"/>
   <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="partner"/>
   <project path="external/stardoc" name="platform/external/stardoc" groups="partner"/>
-  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" groups="partner"/>
-  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" groups="partner" />
+  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" clone-depth="1" groups="partner"/>
+  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" clone-depth="1" groups="partner" />
 </manifest>
